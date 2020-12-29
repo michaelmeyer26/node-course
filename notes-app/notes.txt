@@ -1,1 +1,0 @@
-My name is Michael. I am learning Node.js in addition to learning Java through a coding bootcamp, Codeup.
