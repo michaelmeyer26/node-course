@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 const fs = require('fs');
 const { monitorEventLoopDelay } = require('perf_hooks');
 const { argv } = require('process');
@@ -19,20 +20,20 @@ const addNote = function(title, body) {
         });
     
         saveNotes(notes);
-        console.log('New note added!');
+        console.log(chalk.green.inverse('New note added!'));
     } else {
-        console.log('Note title taken!');
+        console.log(chalk.red.inverse.bold('Note title taken!'));
     }
 };
 
 const removeNote = function(title) {
     const notes = loadNotes();
-    const duplicateNotes = notes.filter(note => note.title !== title);
-    if (duplicateNotes.length === notes.length) {
-        console.log('No note with that title found.');
+    const notesToKeep = notes.filter(note => note.title !== title);
+    if (notesToKeep.length === notes.length) {
+        console.log(chalk.red.inverse.bold('No note with that title found.'));
     } else {
-        saveNotes(duplicateNotes);
-        console.log('Note removed!');
+        saveNotes(notesToKeep);
+        console.log(chalk.green.inverse('Note removed!'));
     }
 }
 
