@@ -26,7 +26,14 @@ const addNote = function(title, body) {
 };
 
 const removeNote = function(title) {
-    console.log('Removing note ' + title);
+    const notes = loadNotes();
+    const duplicateNotes = notes.filter(note => note.title !== title);
+    if (duplicateNotes.length === notes.length) {
+        console.log('No note with that title found.');
+    } else {
+        saveNotes(duplicateNotes);
+        console.log('Note removed!');
+    }
 }
 
 const saveNotes = function (notes) {
