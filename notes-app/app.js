@@ -58,7 +58,7 @@ yargs.command({
     command: 'list',
     describe: 'Lists out all the currently-saved notes',
     handler() {
-        console.log('Here is a list of all the notes...');
+        notes.listNotes();
     }
 });
 
