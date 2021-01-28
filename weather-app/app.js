@@ -11,5 +11,7 @@ const geocodeURL = 'http://api.mapbox.com/geocoding/v5/mapbox.places/Los%20Angel
 
 request({ url: geocodeURL, json: true}, (error, response) => {
     // console.log(response.body);
-    console.log('lat: ' + response.body.features[0].center[0] + '\nlng: ' + response.body.features[0].center[1])
+    const latitude = response.body.features[0].center[1];
+    const longitude = response.body.features[0].center[0];
+    console.log('lat: ' + latitude + '\nlng: ' + longitude)
 })
