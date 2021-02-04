@@ -14,11 +14,14 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.send('About Page');
+    res.send('<h1>About</h1>');
 })
 
 app.get('/weather', (req, res) => {
-    res.send('Weather Page');
+    res.send({
+        "Location": "Philadeplhia",
+        "Forecast": "Always Sunny"
+    });
 })
 
 //app.com
