@@ -5,16 +5,38 @@ console.log(__dirname);
 console.log(path.join(__dirname, "../public"));
 
 const app = express();
-const publicDirectoryPath = path.join(__dirname, "../public")
+const publicDirectoryPath = path.join(__dirname, "../public");
 
-app.use(express.static(publicDirectoryPath))
+app.set('view engine', 'hbs');
+app.use(express.static(publicDirectoryPath));
+
+app.get('', (req, res) => {
+    res.render('index', {
+        title: "Weather",
+        name: "Michael Meyer"
+    });
+});
+
+app.get('/about', (req, res) => {
+    res.render('about', {
+        title: "About Me",
+        name: "Michael Meyer"
+    });
+})
+
+app.get('/help', (req, res) => {
+    res.render('help', {
+        title: "Help Page",
+        message: "Help message?"
+    })
+})
 
 app.get('/weather', (req, res) => {
     res.send({
         "Location": "Philadeplhia",
         "Forecast": "Always Sunny"
     });
-})
+});
 
 //app.com
 //app.com/help
