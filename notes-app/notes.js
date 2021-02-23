@@ -3,8 +3,6 @@ const fs = require('fs');
 const { monitorEventLoopDelay } = require('perf_hooks');
 const { argv } = require('process');
 
-const getNotes = () => 'Your notes...';
-
 const addNote = (title, body) => {
     const notes = loadNotes();
     //Inefficient, bad, looks through every note even after finding a match
@@ -21,7 +19,7 @@ const addNote = (title, body) => {
     } else {
         console.log(chalk.red.inverse.bold('Note title taken!'));
     }
-};
+}; 
 
 const removeNote = (title) => {
     const notes = loadNotes();
@@ -69,7 +67,6 @@ const loadNotes = () => {
 };
 
 module.exports = {
-    getNotes: getNotes,
     addNote: addNote,
     removeNote: removeNote,
     readNote: readNote,
