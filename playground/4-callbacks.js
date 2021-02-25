@@ -1,6 +1,7 @@
-// //Promises Example
+// // Promises Example, compare to code in 8-promises.js
 const doWorkCallback = (callback) => {
     setTimeout(() => {
+        // error
         // callback('This is my error!', undefined)
         callback(undefined, [1, 4, 7])
     }, 2000)

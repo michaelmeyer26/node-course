@@ -10,3 +10,9 @@ doWorkPromise.then((result) => {
 }).catch((error) => {
     console.log('Error!', error)
 })
+
+//                        fulfilled
+//                      /
+// Promise -> pending -
+//                      \
+//                        rejected
