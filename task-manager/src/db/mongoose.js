@@ -29,7 +29,19 @@ const User = mongoose.model('User', {
                 throw new Error('Age must be a positive number')
             }
         }
+    }, password: {
+        type: String,
+        trim: true,
+        required: true,
+        validate(value) {
+            if(value.includes('password')) {
+                throw new Error('Cannot contain the word "password"')
+            } else if (value.length < 6) {
+                throw new Error('Password must be 6 or more characters')
+            }
+        }
     }
+
 })
 
 //new model for tasks
@@ -58,7 +70,8 @@ const Task = mongoose.model('Task', {
 
 const me = new User({
    name: '    Autumn  ',
-   email: '  MYEMAIL@GMAIL.COM  '
+   email: '  MYEMAIL@GMAIL.COM  ',
+   password: 'hello'
 })
 
 me.save().then(() => {
