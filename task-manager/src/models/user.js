@@ -32,7 +32,7 @@ const User = mongoose.model('User', {
             if(value.includes('password')) {
                 throw new Error('Cannot contain the word "password"')
             } else if (value.length < 6) {
-                throw new Error('Password must be 6 or more characters')
+                throw new Error('Password must be 7 or more characters')
             }
         }
     }
