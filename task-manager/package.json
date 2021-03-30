@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "jsonwebtoken": "^8.4.0",
     "mongodb": "^3.6.4",
     "mongoose": "^5.3.16",
     "validator": "^10.9.0"
