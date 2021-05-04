@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^6.3.1",
     "jsonwebtoken": "^8.4.0",
     "mongodb": "^3.6.4",
     "mongoose": "^5.3.16",
