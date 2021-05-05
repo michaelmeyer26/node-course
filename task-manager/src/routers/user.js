@@ -3,6 +3,7 @@ const router = new express.Router()
 const sharp = require('sharp')
 const User = require('../models/user')
 const auth = require('../middleware/auth')
+const { sendWelcomeEmail } = require('../emails/account')
 const multer = require('multer')
 const upload = multer({
     limits: {
@@ -22,6 +23,7 @@ router.post('/users', async (req, res) => {
 
     try {
         await user.save()
+        sendWelcomeEmail(user.email, user.name)
         const token = await user.generateAuthToken()
         res.status(201).send({ user, token })
     } catch (e) {
